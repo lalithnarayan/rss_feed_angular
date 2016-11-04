@@ -1,7 +1,63 @@
-<!DOCTYPE html><html lang="en"><head><title>Reddit RSS Feed</title><!--Meta --><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="description" content=""><meta name="viewport" content="initial-scale = 1.0, maximum-scale=1.0"><link rel="icon" href="favicon.ico" type="image/x-icon"><!--stylesheet--><!-- build:css css/app.min.css --><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css"><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" type="text/css" href="styles/app.css"><link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"><!-- endbuild -->
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <title>Reddit RSS Feed</title>
+    <!--Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale = 1.0, maximum-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!--stylesheet-->
+    <!-- build:css css/app.min.css -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- endbuild -->
+    <!-- build:js js/app.min.js -->
+    <!-- endbuild -->
+</head>
 
-<!-- build:js js/app.min.js -->
-<!-- endbuild --></head><body ng-app="myapp"><div ng-controller="myController" class="wrapper"><div class="top-container"> <div class="header-wrp"><div class="txt">RSS Feed Viewer in AngularJs</div></div><div class="feed-btn-wrp"> <button ng-click="addCard($event)">{{buttonText}}</button></div><div class="feed-time-wrp"><div class="current-time">{{ clock }}</div><div class="time-spent current-time">{{timeSpent | secondsToDateTime | date:'HH:mm:ss'}}</div></div></div><div class="feed-container container"><div class="row">   <div ng-repeat="feed in feeds" class="col-md-6 col-xs-12 col-lg-6 col-sm-12"><div class="feed-item-wrp"><div ng-click="deleteFeed($index)" class="feed-delete-wrp">x</div><div class="feed-item-img-wrp"></div><div class="feed-item-content-wrp">   <div ng-repeat="category in feed.categories " class="feed-catogry-wrp"><div class="txt clearfix">{{category}}</div></div><div class="feed-title"><a href="{{feed.link}}">{{feed.title}}</a></div><div class="feed author">{{feed.author | spliceText}}</div><div ng-bind-html=" feed.content | trustAsHtml" class="feed-cotent">{{feed.content}}</div>
+<body ng-app="myapp">
+    <div ng-controller="myController" class="wrapper">
+        <div class="top-container">
+            <div class="header-wrp">
+                <div class="txt">RSS Feed Viewer in AngularJs</div>
+            </div>
+            <div class="feed-btn-wrp">
+                <button ng-click="addCard($event)">{{buttonText}}</button>
+            </div>
+            <div class="feed-time-wrp">
+                <div class="current-time">{{ clock }}</div>
+                <div class="time-spent current-time">{{timeSpent | secondsToDateTime | date:'HH:mm:ss'}}</div>
+            </div>
+        </div>
+        <div class="feed-container container">
+            <div class="row">
+                <div ng-repeat="feed in feeds" class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
+                    <div class="feed-item-wrp">
+                        <div ng-click="deleteFeed($index)" class="feed-delete-wrp">x</div>
+                        <div class="feed-item-img-wrp"></div>
+                        <div class="feed-item-content-wrp">
+                            <div ng-repeat="category in feed.categories " class="feed-catogry-wrp">
+                                <div class="txt clearfix">{{category}}</div>
+                            </div>
+                            <div class="feed-title"><a href="{{feed.link}}">{{feed.title}}</a></div>
+                            <div class="feed author">{{feed.author | spliceText}}</div>
+                            <div ng-bind-html=" feed.content | trustAsHtml" class="feed-cotent">{{feed.content}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="bower/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-bridget/jquery-bridget.js"></script>
+    <script src="bower/angular/angular.min.js"></script>
+    <script src="bower/angular-masonry/angular-masonry.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
 
-</div></div></div></div></div></div><script src="bower/jquery/dist/jquery.min.js"></script><script src="bower_components/jquery-bridget/jquery-bridget.js"></script><script src="bower/angular/angular.min.js"></script><script src="bower/angular-masonry/angular-masonry.js"></script><script src="scripts/app.js"></script></body></html>
+</html>
